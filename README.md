@@ -24,7 +24,7 @@ Check package.json file for full list of dependencies
 
 ### Requirements
 
-- For **microsoft login** to work, it may be necessary to replace .env.development's CLIENT_ID with your own (please follow env.example file at root of this project)
+- For **microsoft login** to work, it may be necessary to replace .env.development's CLIENT_ID with your own (please follow env.example file at root of this project).
 - For the app to work a **backend** is required. The environment variables in .env.development file is currently setup to use the production version. To use a local version, follow the README for the [Project Issues Suite API](https://github.com/jeffvhuang/Project-Issues-Suite-API).
 
 ### Installation
