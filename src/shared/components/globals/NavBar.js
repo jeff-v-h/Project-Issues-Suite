@@ -10,7 +10,7 @@ import toastr from "toastr";
 import UserMenu from "../user/UserMenu";
 import { updateUser } from "../../actions/user-actions";
 import { routeCodes } from "../../config/constants";
-import logo from "../../../../public/images/project-design-amped-name.png";
+import logo from "../../../../public/images/pis-logo.PNG";
 
 const propTypes = {
   isAuthed: bool.isRequired,
