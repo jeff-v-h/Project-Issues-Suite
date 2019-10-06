@@ -1,0 +1,42 @@
+@import './variables';
+@import './all';
+@import './layout';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  .ie {
+    overflow-x: auto;
+    overflow-y: auto;
+
+    body {
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+  }
+}
+
+#root { // sass-lint:disable-line no-ids
+  height: 100%;
+}
+
+#app { // sass-lint:disable-line no-ids
+  @include respond-to(small) {
+    font-size: 90%;
+  }
+  height: 100%;
+  text-align: center;
+}
+
+// wrapper div created due to theme ability unable to use themify function to set background-color
+.content-wrapper {
+  @include themify($themes) {
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+  }
+  height: 100%;
+  overflow: auto;
+}

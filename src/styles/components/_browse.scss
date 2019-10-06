@@ -1,0 +1,30 @@
+.browse-input-container {
+  @extend %flex-container;
+  @extend %wide-mid-container;
+  @extend %big-auto-center;
+  @include respond-to(small) {
+    flex-direction: column !important; // sass-lint:disable-line no-important
+    justify-content: center;
+  }
+  justify-content: space-between;
+}
+
+.browse-item-mid {
+  display: flex;
+  justify-content: center;
+}
+
+.browse-fav-btn {
+  margin-right: 10px;
+  margin-top: 3px;
+  min-width: 38px;
+}
+
+.browse-ticket-btn {
+  @include respond-to(small) {
+    margin-top: 1em;
+    text-align: right;
+  }
+
+  min-width: 125px;
+}

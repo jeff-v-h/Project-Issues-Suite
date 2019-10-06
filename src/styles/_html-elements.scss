@@ -1,0 +1,30 @@
+// Set the default text colour for the whole app
+// Unable to set color in .app since current theme
+// mixin doesnt work for child elements
+a {
+  cursor: pointer;
+  margin: 0;
+  min-width: 0;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  li {
+    margin: 0 auto;
+    padding: .5rem 0;
+  }
+}
+
+input {
+  &:read-only {
+    background-color: $light-grey !important;
+  }
+}
+
+textarea {
+  font-family: $font-merriweather, Times, serif;
+}

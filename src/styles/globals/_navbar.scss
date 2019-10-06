@@ -1,0 +1,59 @@
+// sass-lint:disable no-important
+.hamburger-menu {
+  margin: .8em !important;
+}
+
+.logo {
+  &.hamburger-menu {
+    margin: 1em !important;
+  }
+}
+
+.nav-menu-wrapper {
+  border-style: none !important;
+}
+
+.nav-menu {
+  @include themify($themes) {
+    background-color: themed('backgroundColor');
+    border-bottom-color: themed('navBarBottomColor');
+  }
+
+  border-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+
+  .nav-item {
+    &:hover {
+      @include themify($themes) {
+        background-color: themed('hoverBackground') !important;
+      }
+    }
+  }
+
+  .menu {
+    @include themify($themes) {
+      background-color: themed('backgroundColor') !important;
+    }
+  }
+}
+
+.nav-dd {
+  &:hover {
+    .icon {
+      @include themify($themes) {
+        background-color: themed('hoverBackground') !important;
+      }
+    }
+  }
+
+  .menu {
+    @include themify($themes) {
+      border-color: themed('borderColor') !important;
+    }
+  }
+
+  div {
+    cursor: pointer;
+  }
+}

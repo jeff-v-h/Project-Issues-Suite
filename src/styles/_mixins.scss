@@ -1,0 +1,76 @@
+// Media Queries
+$screen: 'only screen' !default;
+$landscape: ' and (orientation: landscape)' !default;
+$portrait: ' and (orientation: portrait)' !default;
+
+$media-query-sizes: (
+  x-small: (
+    min: 0,
+    max: 360px
+  ),
+  small: (
+    min: 0,
+    max: 600px
+  ),
+  med-min: (
+    min: 600px
+  ),
+  medium: (
+    min: 600px,
+    max: 1200px
+  ),
+  large: (
+    min: 1200px
+  )
+);
+
+// function to help create a media query label
+@function media-label($media, $orientation: false) {
+  // If one of the entered parameters is not in $media-query-sizes
+  // (ie. small, medium or large), a warning is given
+  @if(not map-has-key($media-query-sizes, $media)) {
+    @warn 'the $media value needs to be one of the following #{map-keys($media-query-sizes)}';
+    @return false;
+  };
+
+  // from $media-query-sizes, get the value of the given key/param
+  // eg. if 'small' is param, value = { min: , max: }
+  $media-sizes: map-get($media-query-sizes, $media);
+
+  // Extract the min/max value/s also
+  // Then create the media query's label (without the @media)
+  $media-label: $screen + ' and (min-width:#{map-get($media-sizes, "min")})';
+
+  @if(length($media-sizes) > 1) {
+    $media-label: $media-label + ' and (max-width:#{map-get($media-sizes, "max")})';
+  };
+
+  // If an orientation is provided, add it into the media query
+  @if $orientation {
+    @if $orientation == landscape {
+      $media-label: $media-label + $landscape;
+    } @else {
+      $media-label: $media-label + $portrait;
+    }
+  };
+
+  @return $media-label;
+};
+
+// Use this in place of writing a whole media query
+@mixin respond-to($media, $orientation: false) {
+  $media-query-label: media-label($media, $orientation);
+
+  @if $media-query-label {
+    @media #{media-label($media, $orientation)} {
+      @content;
+    }
+  };
+};
+
+// example use
+// @include respond-to(x-small) {
+//   .flex-container {
+//     flex-wrap: wrap;
+//   }
+// }

@@ -1,0 +1,133 @@
+// sass-lint:disable no-important
+.new-btn-mobile {
+  height: 3.5em;
+  width: 6em;
+}
+
+.app-header {
+  // set height so the loader doesnt change page layout
+  height: 3em !important;
+  margin: 4em;
+  text-align: center;
+}
+
+// THE FOLLOWING ARE SEMANTIC-UI-REACT OVERRIDES
+.header,
+.divider,
+.item,
+.text,
+label {
+  @include themify($themes) {
+    color: themed('textColor') !important;
+  }
+}
+
+.divider {
+  @include themify($themes) {
+    background-color: themed('hoverBackground');
+  }
+}
+
+.loader {
+  &::before {
+    @include themify($themes) {
+      border-color: themed('loaderBeforeColor') !important;
+    }
+  }
+
+  &::after {
+    @include themify($themes) {
+      border-color: themed('loaderAfterColor') transparent transparent !important;
+    }
+  }
+}
+
+.content {
+  .header {
+    @include themify($themes) {
+      color: themed('invertedTextColor') !important;
+    }
+  }
+}
+
+.dropdown {
+  @include themify($themes) {
+    background-color: themed('backgroundColor') !important;
+    border-color: themed('borderColor') !important;
+  }
+
+  &.active {
+    @include themify($themes) {
+      border-color: $active-blue !important;
+    }
+  }
+
+  .menu {
+    border-top: 0 !important;
+  }
+
+  .icon {
+    @include themify($themes) {
+      color: themed('textColor') !important;
+    }
+  }
+
+  .item {
+    @include themify($themes) {
+      background-color: themed('backgroundColor') !important;
+      border-color: themed('borderColor') !important;
+    }
+
+    border-top: 0 !important;
+
+    &:hover {
+      @include themify($themes) {
+        background-color: themed('hoverBackground') !important;
+      }
+    }
+  }
+}
+
+.table-menu {
+  a {
+    &:hover {
+      @include themify($themes) {
+        background-color: themed('hoverBackground') !important;
+      }
+    }
+  }
+}
+
+.loading-page {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.loading-content {
+  left: 50%;
+  position: fixed;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.loading-logo {
+  margin-bottom: 15em;
+}
+
+.invisible {
+  display: none;
+}
+
+.select-container {
+  min-height: 200px;
+}
+
+.read-only > textarea {
+  background-color: $light-grey !important;
+}
+
+.char-icon {
+  padding-left: .5em;
+  padding-top: .5em;
+}

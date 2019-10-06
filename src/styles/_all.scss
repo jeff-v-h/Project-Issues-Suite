@@ -1,0 +1,15 @@
+// setup
+// @import './normalize'; // normalize is automatically included in semantic-ui
+@import './mixins';
+
+// base
+@import './fonts';
+@import './themes';
+@import './layout';
+@import './html-elements';
+@import './classes';
+
+//components
+@import './globals/navbar';
+@import './components/dashboard';
+@import './components/browse';

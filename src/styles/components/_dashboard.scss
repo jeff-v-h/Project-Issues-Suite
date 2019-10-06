@@ -1,0 +1,19 @@
+.tabular {
+  .active {
+    @include themify($themes) {
+      background-color: themed('backgroundColor') !important;
+    }
+  }
+}
+
+.project-header {
+  @include respond-to(small) {
+    padding-left: 0 !important;
+  }
+
+  padding-left: 1em !important;
+}
+
+.ticket-header {
+  padding-left: .5em !important;
+}

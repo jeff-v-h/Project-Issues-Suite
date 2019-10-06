@@ -1,0 +1,96 @@
+.flex-container,
+%flex-container {
+  @include respond-to(med-min) {
+    flex-wrap: nowrap;
+  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mid-container {
+  @extend %centered;
+  max-width: 45em;
+}
+
+.wide-mid-container,
+%wide-mid-container {
+  @extend %centered;
+  max-width: 60em;
+}
+
+.centered,
+%centered {
+  margin: 0 auto;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.pad-right {
+  padding-right: 10%;
+}
+
+.margin-bot {
+  margin-bottom: 2em;
+}
+
+.auto-center {
+  margin: 0 auto 2rem;
+}
+
+.big-auto-center,
+%big-auto-center {
+  margin: 0 auto 4rem;
+}
+
+.block {
+  display: block;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto 2rem;
+}
+
+.container-for-vids {
+  @include respond-to(large) {
+    justify-content: center;
+  }
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .vids {
+    @include respond-to(large) {
+      margin: 2rem;
+    }
+    height: 12rem;
+    margin: 1rem;
+    min-width: 5rem;
+    width: 15rem;
+  }
+}
+
+.placeholder {
+  background-color: $coral;
+  font-size: 3rem;
+}

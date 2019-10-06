@@ -1,0 +1,45 @@
+$themes: (
+  dark: (
+    backgroundColor: $darker-grey,
+    borderColor: $light-grey,
+    textColor: $white,
+    invertedTextColor: $black,
+    navBarColor: $d3-blue,
+    navBarBottomColor: $light-grey,
+    linkTextColor: $white,
+    hoverBackground: $dark-grey,
+    loaderBeforeColor: $dark-grey,
+    loaderAfterColor: $white
+  ),
+  light: (
+    textColor: $black,
+    invertedTextColor: $black,
+    navBarColor: $white,
+    linkTextColor: $dark-grey,
+    buttonTextTransform: none,
+    hoverBackground: $lighter-grey,
+    loaderBeforeColor: $light-grey,
+    loaderAfterColor: $grey
+  )
+);
+
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
