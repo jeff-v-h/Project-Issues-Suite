@@ -12,11 +12,20 @@ import Routes from "./components/Routes";
 import LoadingPage from "./LoadingPage";
 import NavBar from "./components/globals/NavBar";
 import UnsupportedBrowser from "./components/common/UnsupportedBrowser";
-import { getUser, createUser, clearUser } from "./actions/user-actions";
+import {
+  getUser,
+  createUser,
+  clearUser,
+  setFakeUser
+} from "./actions/user-actions";
 import { getProjectsList } from "./actions/projects-actions";
 import { routeCodes } from "./config/constants";
 import * as auth from "../helpers/auth-utils";
-import { getNameFromD3Email, isBrowserSupported } from "../helpers/utils";
+import {
+  getNameFromD3Email,
+  isBrowserSupported,
+  uuidv4
+} from "../helpers/utils";
 
 const propTypes = {
   cookies: instanceOf(Cookies).isRequired,
@@ -213,7 +222,22 @@ class App extends React.Component {
     cookies.remove("userSigninName", { path: "/" });
   };
 
-  authenticate = () => this.setState({ isAuthed: true });
+  // Used for temporary automatic sign in
+  authenticate = () => {
+    const { cookies } = this.props;
+    sessionStorage.userSigninName = "Test.User@random.com";
+    sessionStorage.userDisplayName = "Test User";
+    cookies.set("userSigninName", sessionStorage.userSigninName, { path: "/" });
+    cookies.set("userDisplayName", sessionStorage.userDisplayName, {
+      path: "/"
+    });
+    this.props.actions.createUser(
+      sessionStorage.userSigninName,
+      sessionStorage.userDisplayName
+    );
+    this.props.actions.setFakeUser();
+    this.setState({ isAuthed: true });
+  };
 
   render() {
     if (this.state.isLoading) return <LoadingPage />;
@@ -250,7 +274,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(
-    { getUser, createUser, clearUser, getProjectsList },
+    { getUser, createUser, clearUser, getProjectsList, setFakeUser },
     dispatch
   )
 });
