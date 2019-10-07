@@ -12,7 +12,7 @@ function LoginReq() {
         <title>Login</title>
       </Helmet>
       <PageHeader title="Login Required" />
-      <p>Please sign in with your Deltatre account to access content.</p>
+      <p>Please sign in with your Outlook account to access content.</p>
       <Button as={Link} to={"/login"} primary>Login via Microsoft</Button>
     </Container>
   );
