@@ -75,12 +75,8 @@ The following instructions can be used to test an optimized production version.
 
 ### Deployment
 
-Subscription to the TechAcademy resource group on Microsoft Azure is required if changes need to be made to the TUS frontend App Service. To simply deploy to production, only access to the TechAcademy Project on TFS is required.
+Access to the project's account on Microsoft Azure Portal is required if changes need to be made to the App Service. To simply deploy to production, only access to the project on Azure DevOps is required.
 
-TFS CI/CD pipeline is already set up for all successful release branches to automatically deploy to Azure App Service. The [Gitflow workflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) should be followed when making changes to the app:
-
-1. Make pull requests from feature branches into develop branch via TFS.
-2. Once changes are merged into develop branch and a release is ready to be created, fetch all committed changes of develop branch onto local machine.
-3. Create a release branch `git branch release/vx.x.x` where x should be an integer (eg. `git branch release/v1.9.0`).
-4. Push the new branch to remote `git push origin <release_branch_name>` (eg. `git push origin release/v1.9.0`).
-5. If the release build is successful on TFS, the release should automatically be deployed to production.
+The CI/CD pipelines are already set up for build and release within Azire DevOps.
+When changess are merged into master branch, the CICD pipeline will be kicked off.
+Alternatively go to Piplines > Builds and manually begin the build process followed by the release.
