@@ -59,7 +59,7 @@ Run `npm test` to run the tests.
 
 ## Production
 
-The produced app can be seen at [https://project-issues-suite.azurewebsites.net](https://project-issues-suite.azurewebsites.net).
+The app is not currently deployed
 
 ### Preview
 
@@ -77,6 +77,6 @@ The following instructions can be used to test an optimized production version.
 
 Access to the project's account on Microsoft Azure Portal is required if changes need to be made to the App Service. To simply deploy to production, only access to the project on Azure DevOps is required.
 
-The CI/CD pipelines are already set up for build and release within Azire DevOps.
+The CI/CD pipelines are already set up for build and release within Azure DevOps.
 When changess are merged into master branch, the CICD pipeline will be kicked off.
 Alternatively go to Piplines > Builds and manually begin the build process followed by the release.
